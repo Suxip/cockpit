@@ -1,0 +1,98 @@
+startScreen:
+( Page
+	pagingEvent: { n: gameScreen }
+	components: {
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		( Polygon
+			color: blue
+			vertices: {
+				[ 10 10 ] [ -10 10 ]
+				[ -10 -10 ] [ 10 -10 ]
+			}
+			texture: startScreen
+			texCoord: { 
+				[  1  1 ] [  0  1 ]
+				[  0  0 ] [  1  0 ] 
+			}
+		) //Polygon
+		
+		( AsciiText font: instnormfont transform: (Translation -4 3)  color: white text: "Just Keep Swimming" )
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		playButton:
+		( Button
+			eventId: 3001
+			selectName: 1
+				
+			components: {
+				( Circle
+					color: white
+					radius: 1
+					filled: true
+				) //Circle
+					
+				( Polygon
+					color: blue
+					vertices: {
+						[ 0.5 0 ]
+						[ -0.5 0.5 ]
+						[ -0.5 -0.5 ]
+					}
+					transform: (Translation 0.1 0)
+				) //Polygon
+			} //components
+		) //Play Button
+			
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+		difficultyButton:
+		( Button
+			eventId: 3002
+			selectName: 2
+				
+			components: {	
+				( Polygon
+					color: blue
+					vertices: {
+						[ 1 1 ] [ -1 1 ]
+						[ -1 -1 ] [ 1 -1 ]
+					}
+					transform: (Translation 4 0)
+					components: {
+						( AsciiText font: instnormfont transform: {(Translation -0.8 0) (Scale 0.5)}  color: white text: "Difficulty" )
+					
+					} //components
+				) //Polygon
+			} //components
+		) // Difficulty Button
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		//Button for Endless Mode
+		randomButton:
+		( Button
+			eventId: 3006
+			selectName: 6
+				
+			components: {
+				( Polygon
+					color: blue
+					vertices: {
+						[ 1 1 ] [ -1 1 ]
+						[ -1 -1 ] [ 1 -1 ]
+					}
+					transform: (Translation -4 0)
+					components: {
+						( AsciiText font: instnormfont transform: { (Translation -0.8 0) (Scale 0.3) }  color: white text: "Endless mode" )
+					
+					} //components
+				) //Polygon
+			} //components
+		) // random Button
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		} //components
+) //Page

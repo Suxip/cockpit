@@ -1,0 +1,64 @@
+WinScreen:
+( Polygon
+	color: white
+	vertices: {
+		[5 5] [-5 5]
+		[-5 -7] [5 -7]
+	}
+	visible: 0
+	transform: (Translation 0 2)
+	components: {
+	
+		(AsciiText font: instnormfont  transform: (Translation -1.5 2) color: blue text: "Success!")
+		(AsciiText font: instnormfont  transform: (Translation -4 -1) color: blue text: "Score: ")
+		
+		score:
+		( NumericReadout
+			color: green
+			transform: ( Translation -2 -1 ) 
+			format: "#####"
+			font: instnormfont
+		)
+		
+		nextLevel:
+		(Button
+			eventId: 3010
+			selectName: 10
+			
+			components: {
+				(Polygon 
+					color: blue
+					vertices: {
+						[ 1 1 ] [ -1 1 ]
+						[ -1 -1 ] [ 1 -1 ]}
+					transform: (Translation -2 -4)
+				) //Button Polygon
+				
+				(AsciiText font: instnormfont  transform: {(Translation -2.5 -4) (Scale 0.3)} color: white text: "Next Level")
+				
+			} //Button components
+		) //Restart Button
+		
+		homeScreen:
+		(Button
+			eventId: 3009
+			selectName: 9
+			
+			components: {
+				(Polygon 
+					color: blue
+					vertices: {
+						[ 1 1 ] [ -1 1 ]
+						[ -1 -1 ] [ 1 -1 ]}
+					transform: (Translation 2 -4)
+				) //Button Polygon
+				
+				(AsciiText font: instnormfont  transform: {(Translation 2 -4) (Scale 0.3)} color: white text: "Home")
+				
+			} //Button components
+		) //HomeScreen Button
+	
+		
+	
+	} //Polygon Components
+) //Polygon

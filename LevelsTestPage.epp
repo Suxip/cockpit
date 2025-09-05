@@ -1,0 +1,102 @@
+levelTest: 
+( Page
+	pagingEvent: { n: gameScreen }
+	components: {
+
+		( Polygon
+			color: blue
+			vertices: {
+				[ 10 10 ] [ -10 10 ]
+				[ -10 -10 ] [ 10 -10 ]
+			}
+			texture: tex1
+			texCoord: { 
+				[  1.0  1.0 ] [  0.0  1.0 ]
+				[  0.0  0.0 ] [  1.0  0.0 ] 
+			}
+		) //Polygon
+			
+		( Polygon
+			color: silver
+			vertices: {
+				[ 6 6 ] [ -6 6 ]
+				[ -6 -6 ] [ 6 -6 ]
+			}
+		) //Polygon
+			
+		( AsciiText font: instnormfont transform: {(Translation -5 5) (Scale 0.5)} color: blue text: "Easy" )
+		( AsciiText font: instnormfont transform: {(Translation -5 0) (Scale 0.5)} color: blue text: "Medium" )
+		( AsciiText font: instnormfont transform: {(Translation -5 -5) (Scale 0.5)} color: blue text: "Hard" )
+		
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		
+		Easy:
+		( Button
+			eventId: 3003
+			selectName: 3
+			
+			components: {
+				( Polygon
+				color: blue
+				vertices: {
+				    [ 5 0.5 ]
+				    [ -1 0.5 ]
+				    [ -1 -1 ]
+				    [ 5 -1 ]}
+				transform: (Translation 0 5)
+				texture: Shallows
+					texCoord: { [  1.0  1.0 ] [  0.0  1.0 ]
+				      [  0.0  0.0 ] [  1.0  0.0 ] }
+				) //Polygon
+			} //components
+		) //Easy Button
+	
+		
+		Medium:
+		( Button
+			eventId: 3004
+			selectName: 4
+			
+			components: {
+				( Polygon
+				color: blue
+				vertices: {
+				    [ 5 0.5 ]
+				    [ -1 0.5 ]
+				    [ -1 -1 ]
+				    [ 5 -1 ]}
+					texture: Medium
+					texCoord: { [  1.0  1.0 ] [  0.0  1.0 ]
+				      [  0.0  0.0 ] [  1.0  0.0 ] }
+				transform: (Translation 0 0)
+				) //Polygon
+			} //components
+		) //Medium Button
+		
+		
+		Hard:
+		(Button
+			eventId: 3005
+			selectName: 5
+			
+			components: {
+				(Polygon
+				color: blue
+				vertices: {
+				    [ 5 0.5 ]
+				    [ -1 0.5 ]
+				    [ -1 -1 ]
+				    [ 5 -1 ]}
+					texture: Hard
+					texCoord: { [  1.0  1.0 ] [  0.0  1.0 ]
+				      [  0.0  0.0 ] [  1.0  0.0 ] }
+				transform: (Translation 0 -4.5)
+				) //Polygon
+			} //components
+		) //Hard Button
+		
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+
+	} //components
+) //Page

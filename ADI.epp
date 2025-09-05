@@ -1,0 +1,164 @@
+(Graphic
+    scissorX: -2.35
+    scissorWidth: 5 //3.171
+    scissorY:  -2.5//-1.5855
+    scissorHeight: 5 //3.171
+    transform:  {(Translation .5 -6.25) (Scale 1.3) }
+    components: {
+
+    (Graphic
+        transform: (Translation 0 0 0.1)
+        components: {
+        // draw the aircraft symbol
+        // left wing
+        (Graphic
+            transform: (Translation -0.65 0)
+            components: {
+            (Line
+                transform: (Translation -0.341 0)
+                segment: 1
+                color: white
+                linewidth: 3
+                vertices: {
+                [-0.3 0.1] [0.38 0.1]
+                    [-0.3 0.1] [-0.3 0.02]
+                    [-0.3 0.02] [0.3 0.02]
+                    [0.3 0.02] [0.3 -0.1]
+                    [0.3 -0.1] [0.38 -0.1]
+                    [0.38 -0.1] [0.38 0.1]
+            }
+                )
+                (Polygon
+                    color: black
+                    vertices: {
+                [-0.04 -0.1]
+                [-0.04  0.1]
+                [0.04  0.1]
+                [0.04 -0.1]
+            }
+                    )
+                (Polygon
+                    transform: (Translation -0.341 0)
+                    color: black
+                    vertices: {
+                [-0.3 0.02]
+                [-0.3 0.1]
+                [0.3 0.1]
+                [0.3 0.02]
+            }
+                    )
+        }
+            ) // end of the left wing
+            // right wing
+            (Graphic
+                transform: (Translation 0.65 0)
+                components: {
+            (Line
+                segment: 1
+                color: white
+                transform: (Translation 0.261 0)
+                linewidth: 3
+                vertices: {
+                [-0.3 0.1] [0.38 0.1]
+                    [-0.3 0.1] [-0.3 -0.1]
+                    [-0.3 -0.1] [-0.22 -0.1]
+                    [-0.22 -0.1] [-0.22 0.02]
+                    [-0.22 0.02] [0.38 0.02]
+                    [0.38 0.02] [0.38 0.1]
+            }
+                )
+                (Polygon
+                    color: black
+                    vertices: {
+                [-0.04 -0.1]
+                [-0.04  0.1]
+                [0.04  0.1]
+                [0.04 -0.1]
+            }
+                    )
+                (Polygon
+                    transform: (Translation 0.341 0)
+                    color: black
+                    vertices: {
+                [-0.3 0.02]
+                [-0.3 0.1]
+                [0.3 0.1]
+                [0.3 0.02]
+            }
+                    )
+        }
+                ) // end of the right wing
+
+                // body
+            (Polygon
+                color: white
+                vertices: {
+            [-0.0485 0.02425]
+            [0.0485 0.02425]
+            [0.0485 -0.07275]
+            [-0.0485 -0.07275]
+        }
+                )
+            
+    }
+        )// end of the other stuff graphic
+        adi:
+        (Adi
+            scalingTable:
+    (Table1
+        // degrees pitch
+        x: [-90 90]
+        // inches
+        data: [8.28 -8.28]
+        )
+        components: {
+    rollladder:
+        (Graphic
+            components: {
+        pitchladder:    (Graphic
+            components: {
+#include "pitchtape.epp"
+
+        }
+            ) // end of pitch ladder
+// drawn when the horizon line disappears
+// SLS -make this work right!
+ghosthorizonbar: (GhostHorizon
+    color: white
+    linewidth: 2
+    skyColor: (rgb 0.2 0.4 0.6)
+    groundColor: brown
+    //pitchLimit: 15
+    //margin: 1.4
+    scalingTable:
+        // same as the pitchladder, although we will never get past +-40 degrees pitch before going visible
+        (Table1
+            x: [-90 90]
+            data: [8.28 -8.28]
+            )
+            components: {
+            (Line
+                transform: (Translation 0 0 0.2)
+                segment: 1
+                vertices: {
+                [-2.0 0.0] [-1.75625 0.0]
+                    [-1.634375 0.0] [-1.390625 0.0]
+                    [-1.26875 0.0] [-1.025 0.0]
+                    [-0.903125 0.0] [-0.659375 0.0]
+                    [-0.5375 0.0] [-0.29375 0.0]
+                    [-0.171875 0.0] [0.071875 0.0]
+                    [0.19375 0.0] [0.4375 0.0]
+                    [0.559375 0.0] [0.803125 0.0]
+                    [0.925 0.0] [1.16875 0.0]
+                    [1.290625 0.0] [1.534375 0.0]
+                    [1.65625 0.0] [1.9 0.0]
+            }
+                )
+        }
+            ) // end of ghost horizon instance
+        }
+            ) // end of roll ladder graphic
+    }
+        ) // end of PfdAdi
+}
+)
