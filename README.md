@@ -1,5 +1,11 @@
-# cockpit
+# Cockpit
 Simulation of F16 cockpit using MIXR and C++ 
+
+Equipped with tools:
+- MFD
+- ADI
+- HSI
+- AOA
 
 Picture of finished product:
 
